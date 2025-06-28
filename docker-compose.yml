@@ -1,0 +1,36 @@
+﻿version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: versta
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app_network
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: src/Api/Dockerfile
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=versta;Username=postgres;Password=1234"
+    ports:
+      - "8080:80"
+      - "8443:443"
+    networks:
+      - app_network
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+
+networks:
+  app_network:
+    driver: bridge
