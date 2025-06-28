@@ -1,10 +1,5 @@
+using Application.Orders.Dtos;
+
 namespace Application.Orders.Create;
 
-public record OrderCreateCommand(
-    long OrderId, 
-    string SenderCity,
-    string SenderAddress,
-    string ReceiverCity,
-    string ReceiverAddress,
-    decimal PackageWeightKg,
-    DateTimeOffset PackagePickupDate) : IRequest<Unit>;
+public record OrderCreateCommand(OrderCreateDto OrderCreateDto) : IRequest<long>;
