@@ -48,7 +48,7 @@ Start-Process cmd -ArgumentList "/c npm run dev"
 
 - **Backend:** ASP.NET Core 9 + MediatR + CQRS + EF Core + PostgreSQL
 - **Frontend:** React + Vite
-- **Инфраструктура:** Docker, Redis (опционально)
+- **Контейнеризация:** Docker
 
 ## 🧾 Структура
 
@@ -58,8 +58,8 @@ VerstaLanding/
 ├── src/
 │   ├── Api/             # ASP.NET API (Startup project)
 │   ├── Application/     # CQRS + бизнес-логика
-│   ├── Domain/          # Модели и контракты
-│   └── Infrastructure/  # EF Core + миграции + зависимости
+│   ├── Domain/          # Модели
+│   └── Infrastructure/  # EF Core + миграции
 └── docker-compose.yml
 ```
 
