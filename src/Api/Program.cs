@@ -1,5 +1,7 @@
 using Api.Middleware;
 using Application;
+using Application.Common;
+using Application.Settings;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.Configure<InputLimitSettings>(builder.Configuration.GetSection("MySettings"));
+
 
 
 

@@ -1,28 +1,32 @@
-    using Application.Common.Constants;
+using Application.Common;
+using Application.Settings;
+using Microsoft.Extensions.Options;
 
-    namespace Application.Orders.Create;
+namespace Application.Orders.Create;
 
-    public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
+public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
+{
+    public CreateOrderCommandValidator(IOptions<InputLimitSettings> options)
     {
-        public CreateOrderCommandValidator()
-        {
-            RuleFor(x => x.CreateOrderDto.SenderCity)
-                .NotNull()
-                .NotEmpty()
-                .MaximumLength(InputLimits.CityMaxLength);
-            RuleFor(x => x.CreateOrderDto.SenderAddress)
-                .NotNull()
-                .NotEmpty()
-                .MaximumLength(InputLimits.AddressMaxLength);
-            RuleFor(x => x.CreateOrderDto.ReceiverCity)
-                .NotNull()
-                .NotEmpty()
-                .MaximumLength(InputLimits.CityMaxLength);
-            RuleFor(x => x.CreateOrderDto.ReceiverAddress)
-                .NotNull()
-                .NotEmpty()
-                .MaximumLength(InputLimits.AddressMaxLength);
-            RuleFor(x => x.CreateOrderDto.PackageWeightKg)
-                .GreaterThan(0);
-        }
+        var inputLimits = options.Value;
+        RuleFor(x => x.CreateOrderDto.SenderCity)
+            .NotNull()
+            .NotEmpty()
+            .MaximumLength(inputLimits.MaxCharacterCityLength);
+        RuleFor(x => x.CreateOrderDto.SenderAddress)
+            .NotNull()
+            .NotEmpty()
+            .MaximumLength(inputLimits.MaxCharacterAddressLength);
+        RuleFor(x => x.CreateOrderDto.ReceiverCity)
+            .NotNull()
+            .NotEmpty()
+            .MaximumLength(inputLimits.MaxCharacterCityLength);
+        RuleFor(x => x.CreateOrderDto.ReceiverAddress)
+            .NotNull()
+            .NotEmpty()
+            .MaximumLength(inputLimits.MaxCharacterAddressLength);
+        RuleFor(x => x.CreateOrderDto.PackageWeightKg)
+            .GreaterThan(0)
+            .LessThanOrEqualTo(inputLimits.MaxPackageWeightKg);
     }
+}
