@@ -1,3 +1,4 @@
+using Api.Middleware;
 using Application;
 using Infrastructure;
 
@@ -19,6 +20,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 
 // app.UseAuthorization();

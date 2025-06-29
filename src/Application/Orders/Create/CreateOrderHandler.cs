@@ -4,18 +4,18 @@ using Domain.Entities;
 
 namespace Application.Orders.Create;
 
-public class OrderCreateHandler : IRequestHandler<OrderCreateCommand, long>
+public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, long>
 {
     private readonly IOrdersDbContext _dbContext;
 
-    public OrderCreateHandler(IOrdersDbContext dbContext)
+    public CreateOrderHandler(IOrdersDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task<long> Handle(OrderCreateCommand request, CancellationToken cancellationToken)
+    public async Task<long> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
-        var orderEntity = request.OrderCreateDto.ToEntity();
+        var orderEntity = request.CreateOrderDto.ToEntity();
         _dbContext.Orders.Add(orderEntity);
         await _dbContext.SaveChangesAsync(cancellationToken);
         return orderEntity.Id;

@@ -1,6 +1,7 @@
-namespace Application.Orders.Dtos;
+namespace Application.Orders.Get;
 
-public record OrderCreateDto(
+public record GetOrderDto(
+    long OrderId,
     string SenderCity,
     string SenderAddress,
     string ReceiverCity,

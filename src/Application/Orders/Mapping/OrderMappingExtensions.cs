@@ -1,26 +1,28 @@
-using Application.Orders.Dtos;
+using Application.Orders.Create;
+using Application.Orders.Get;
+using Application.Orders.Get.Single;
 using Domain.Entities;
 
 namespace Application.Orders.Mapping;
 
 public static class OrderMappingExtensions
 {
-    public static Order ToEntity(this OrderCreateDto orderCreateDto)
+    public static Order ToEntity(this CreateOrderDto createOrderDto)
     {
         var orderEntity = new Order(
-            orderCreateDto.SenderCity,
-            orderCreateDto.SenderAddress,
-            orderCreateDto.ReceiverCity,
-            orderCreateDto.ReceiverAddress,
-            orderCreateDto.PackageWeightKg,
-            orderCreateDto.PackagePickupDate
+            createOrderDto.SenderCity,
+            createOrderDto.SenderAddress,
+            createOrderDto.ReceiverCity,
+            createOrderDto.ReceiverAddress,
+            createOrderDto.PackageWeightKg,
+            createOrderDto.PackagePickupDate
         );
         return orderEntity;
     }
 
-    public static OrderGetDto ToDto(this Order orderEntity)
+    public static GetOrderDto ToDto(this Order orderEntity)
     {
-        var orderGetDto = new OrderGetDto(
+        var orderGetDto = new GetOrderDto(
             orderEntity.Id,
             orderEntity.SenderCity,
             orderEntity.SenderAddress,
