@@ -3,3 +3,47 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+# Node.js
+node_modules/
+dist/
+build/
+.temp/
+.tmp/
+.vite/
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Vite cache
+.cache/
+.vite-cache/
+
+# Testing
+coverage/
+*.lcov
+
+# Editor configs (optional)
+*.swp
+*.swo
+
+# VSCode settings
+.vscode/
+
+# Optional lockfiles if switching tools
+yarn.lock
+pnpm-lock.yaml

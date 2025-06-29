@@ -13,33 +13,5 @@
       - app_network
     restart: unless-stopped
 
-  backend:
-    build:
-      context: .
-      dockerfile: src/Api/Dockerfile
-    depends_on:
-      - db
-    environment:
-      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=versta;Username=postgres;Password=1234"
-    ports:
-      - "8080:80"
-    networks:
-      - app_network
-    restart: unless-stopped
-    
-  client:
-    build:
-      context: ./client
-    ports:
-      - "5173:80"
-    depends_on:
-      - backend
-    networks:
-      - app_network
-
 volumes:
   pgdata:
-
-networks:
-  app_network:
-    driver: bridge
