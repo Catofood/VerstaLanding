@@ -1,4 +1,3 @@
-using Application.Exceptions;
 using Application.Interfaces;
 using Application.Orders.Mapping;
 using Microsoft.EntityFrameworkCore;
