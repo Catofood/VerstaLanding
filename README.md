@@ -24,13 +24,13 @@ cd src/Api
 dotnet ef database update
 ```
 
-### 4. Запустить backend (в новом окне PowerShell)
+### 4. Запустить backend (откроется в новом окне PowerShell)
 
 ```powershell
 Start-Process dotnet -ArgumentList "run"
 ```
 
-### 5. Установить зависимости frontend и запустить React (в новом окне)
+### 5. Установить зависимости frontend и запустить React (откроется в новом окне)
 
 ```powershell
 cd ../../client
