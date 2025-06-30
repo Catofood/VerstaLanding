@@ -9,14 +9,13 @@ public static class OrderMappingExtensions
 {
     public static Order ToEntity(this CreateOrderDto createOrderDto)
     {
-        var orderEntity = new Order(
-            createOrderDto.SenderCity,
-            createOrderDto.SenderAddress,
-            createOrderDto.ReceiverCity,
-            createOrderDto.ReceiverAddress,
-            createOrderDto.PackageWeightKg,
-            createOrderDto.PackagePickupDate
-        );
+        var orderEntity = new Order(){
+            SenderCity = createOrderDto.SenderCity,
+            SenderAddress = createOrderDto.SenderAddress,
+            ReceiverCity = createOrderDto.ReceiverCity,
+            ReceiverAddress = createOrderDto.ReceiverAddress,
+            PackageWeightKg = createOrderDto.PackageWeightKg,
+            PackagePickupDate = createOrderDto.PackagePickupDate};
         return orderEntity;
     }
 
