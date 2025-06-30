@@ -18,7 +18,7 @@ public class GetOrderHandler : IRequestHandler<GetOrderQuery, GetOrderDto>
     {
         var orderId = request.OrderId;
         var orderEntity = await _dbContext.Orders.FirstOrDefaultAsync(x => x.Id == orderId, cancellationToken: cancellationToken);
-        if (orderEntity is null) throw new NotFoundException($"Order {orderId} not found");
+        if (orderEntity is null) throw new KeyNotFoundException($"Order with {orderId} not found");
         var orderDto = orderEntity.ToDto();
         return orderDto;
     }

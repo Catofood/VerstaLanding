@@ -1,42 +1,28 @@
-﻿namespace Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
 
 public class Order
 {
-    public long Id { get; private set; }
-    public string SenderCity { get; private set; }
-    public string SenderAddress { get; private set; }
-    public string ReceiverCity { get; private set; }
-    public string ReceiverAddress { get; private set; }
-    public decimal PackageWeightKg { get; private set; }
-    public DateTimeOffset PackagePickupDate { get; private set; }
+    [Key]
+    [Column("id")]
+    public long Id { get; set; }
     
-    // Для EF, не удалять
-    private Order() { }
-
-    public Order(
-        string senderCity,
-        string senderAddress,
-        string receiverCity,
-        string receiverAddress,
-        decimal packageWeightKg,
-        DateTimeOffset packagePickupDate)
-    {
-        if (string.IsNullOrWhiteSpace(senderCity))
-            throw new ArgumentException("Sender city is required.", nameof(SenderCity));
-        if (string.IsNullOrWhiteSpace(senderAddress))
-            throw new ArgumentException("Sender address is required.", nameof(SenderAddress));
-        if (string.IsNullOrWhiteSpace(receiverCity))
-            throw new ArgumentException("Receiver city is required.", nameof(ReceiverCity));
-        if (string.IsNullOrWhiteSpace(receiverAddress))
-            throw new ArgumentException("Receiver address is required.", nameof(ReceiverAddress));
-        if (packageWeightKg <= 0)
-            throw new ArgumentException("Package weight must be greater than zero.", nameof(packageWeightKg));
-        SenderCity = senderCity;
-        SenderAddress = senderAddress;
-        ReceiverCity = receiverCity;
-        ReceiverAddress = receiverAddress;
-        PackageWeightKg = packageWeightKg;
-        PackagePickupDate = packagePickupDate;
-    }
-
+    [Column("sender_city")]
+    public string SenderCity { get; set; }
+    
+    [Column("sender_address")]
+    public string SenderAddress { get; set; }
+    
+    [Column("receiver_city")]
+    public string ReceiverCity { get; set; }
+    
+    [Column("receiver_address")]
+    public string ReceiverAddress { get; set; }
+    
+    [Column("order_number")]
+    public decimal PackageWeightKg { get; set; }
+    [Column("package_pickup_date")]
+    public DateTimeOffset PackagePickupDate { get; set; }
 }
