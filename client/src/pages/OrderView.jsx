@@ -52,7 +52,7 @@ export default function OrderView({ orderId, goBack }) {
 
   return (
     <div style={{ maxWidth: 400 }}>
-      <h3>Заказ №{order.orderId}</h3>
+      <h3>Заказ №{order.id}</h3>
       <p><b>Город отправителя:</b> {order.senderCity}</p>
       <p><b>Адрес отправителя:</b> {order.senderAddress}</p>
       <p><b>Город получателя:</b> {order.receiverCity}</p>
