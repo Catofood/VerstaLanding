@@ -1,9 +1,8 @@
-using Application.Orders.Create;
-using Application.Orders.Get;
-using Application.Orders.Get.Single;
+using Application.Orders.Commands.Create;
+using Application.Orders.Query;
 using Domain.Entities;
 
-namespace Application.Orders.Mapping;
+namespace Application.Common.Mapping;
 
 public static class OrderMappingExtensions
 {

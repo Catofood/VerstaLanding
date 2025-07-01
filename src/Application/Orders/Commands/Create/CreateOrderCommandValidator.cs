@@ -1,8 +1,7 @@
-using Application.Common;
 using Application.Settings;
 using Microsoft.Extensions.Options;
 
-namespace Application.Orders.Create;
+namespace Application.Orders.Commands.Create;
 
 public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
 {

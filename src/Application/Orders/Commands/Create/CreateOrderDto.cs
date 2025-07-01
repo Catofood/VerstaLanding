@@ -1,4 +1,4 @@
-namespace Application.Orders.Create;
+namespace Application.Orders.Commands.Create;
 
 public record CreateOrderDto(
     string SenderCity,

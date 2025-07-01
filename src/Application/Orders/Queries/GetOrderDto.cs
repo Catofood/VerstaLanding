@@ -1,4 +1,4 @@
-namespace Application.Orders.Get;
+namespace Application.Orders.Query;
 
 public record GetOrderDto(
     long OrderId,

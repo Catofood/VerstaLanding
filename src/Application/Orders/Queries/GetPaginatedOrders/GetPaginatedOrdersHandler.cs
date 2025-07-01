@@ -1,19 +1,20 @@
 using Application.Common.Pagination;
 using Application.Interfaces;
-using Application.Orders.Get.Single;
-using Application.Orders.Mapping;
-using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+using Application.Orders.Query;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
-namespace Application.Orders.Get.Paginated;
+namespace Application.Orders.Queries.GetPaginatedOrders;
 
 public class GetPaginatedOrdersHandler : IRequestHandler<GetPaginatedOrdersQuery, PaginatedList<GetOrderDto>>
 {
     private readonly IOrdersDbContext _dbContext;
+    private readonly IMapper _mapper;
 
-    public GetPaginatedOrdersHandler(IOrdersDbContext dbContext)
+    public GetPaginatedOrdersHandler(IOrdersDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
+        _mapper = mapper;
     }
 
     public async Task<PaginatedList<GetOrderDto>> Handle(GetPaginatedOrdersQuery request, CancellationToken cancellationToken)
@@ -22,7 +23,7 @@ public class GetPaginatedOrdersHandler : IRequestHandler<GetPaginatedOrdersQuery
         var pageSize = request.PageSize;
         var paginatedOrderDtos = await _dbContext.Orders
             .OrderBy(x => x.Id)
-            .Select(x => x.ToDto())
+            .ProjectTo<GetOrderDto>(_mapper.ConfigurationProvider)
             .ToPaginatedListAsync(page, pageSize, cancellationToken);
         return paginatedOrderDtos;
     }

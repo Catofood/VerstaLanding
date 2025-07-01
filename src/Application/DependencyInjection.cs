@@ -1,6 +1,5 @@
 using System.Reflection;
 using Application.Common.Behaviors;
-using Application.Orders.Create;
 
 namespace Application;
 
@@ -15,6 +14,7 @@ public static class DependencyInjection
         });
         services.AddValidatorsFromAssembly(thisAssembly);
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddAutoMapper(thisAssembly);
         return services;
     }
 }
