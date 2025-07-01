@@ -1,5 +1,4 @@
 using Application.Interfaces;
-using Application.Orders.Query;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 

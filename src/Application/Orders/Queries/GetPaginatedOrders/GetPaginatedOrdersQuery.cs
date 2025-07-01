@@ -1,5 +1,4 @@
 using Application.Common.Pagination;
-using Application.Orders.Query;
 
 namespace Application.Orders.Queries.GetPaginatedOrders;
 

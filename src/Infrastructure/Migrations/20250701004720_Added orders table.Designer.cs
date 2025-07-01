@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(OrdersDbContext))]
-    [Migration("20250701001835_Added orders table")]
+    [Migration("20250701004720_Added orders table")]
     partial class Addedorderstable
     {
         /// <inheritdoc />
@@ -40,7 +40,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<decimal>("PackageWeightKg")
                         .HasColumnType("numeric")
-                        .HasColumnName("order_number");
+                        .HasColumnName("package_weight_kg");
 
                     b.Property<string>("ReceiverAddress")
                         .IsRequired()

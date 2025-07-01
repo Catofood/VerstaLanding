@@ -1,8 +1,8 @@
 using Application.Common.Pagination;
 using Application.Orders.Commands.Create;
+using Application.Orders.Queries;
 using Application.Orders.Queries.GetOrder;
 using Application.Orders.Queries.GetPaginatedOrders;
-using Application.Orders.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;

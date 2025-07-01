@@ -37,7 +37,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<decimal>("PackageWeightKg")
                         .HasColumnType("numeric")
-                        .HasColumnName("order_number");
+                        .HasColumnName("package_weight_kg");
 
                     b.Property<string>("ReceiverAddress")
                         .IsRequired()

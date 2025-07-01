@@ -67,8 +67,8 @@ export default function OrdersList({ onOrderClick }) {
         </thead>
         <tbody>
           {orders.map(o => (
-            <tr key={o.orderId} onClick={() => onOrderClick(o.orderId)} style={{ cursor: "pointer" }}>
-              <td>{o.orderId}</td>
+            <tr key={o.id} onClick={() => onOrderClick(o.id)} style={{ cursor: "pointer" }}>
+              <td>{o.id}</td>
               <td>{o.senderCity}</td>
               <td>{o.senderAddress}</td>
               <td>{o.receiverCity}</td>

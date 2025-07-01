@@ -1,6 +1,5 @@
 using Application.Common.Pagination;
 using Application.Interfaces;
-using Application.Orders.Query;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 

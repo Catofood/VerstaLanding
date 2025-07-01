@@ -22,7 +22,7 @@ namespace Infrastructure.Migrations
                     sender_address = table.Column<string>(type: "text", nullable: false),
                     receiver_city = table.Column<string>(type: "text", nullable: false),
                     receiver_address = table.Column<string>(type: "text", nullable: false),
-                    order_number = table.Column<decimal>(type: "numeric", nullable: false),
+                    package_weight_kg = table.Column<decimal>(type: "numeric", nullable: false),
                     package_pickup_date = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>

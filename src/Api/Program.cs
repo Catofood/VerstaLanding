@@ -1,6 +1,5 @@
-using Api.Middleware;
+using Api.Common.Middleware;
 using Application;
-using Application.Common;
 using Application.Settings;
 using Infrastructure;
 

@@ -1,10 +1,12 @@
-namespace Application.Orders.Query;
+namespace Application.Orders.Queries;
 
-public record GetOrderDto(
-    long OrderId,
-    string SenderCity,
-    string SenderAddress,
-    string ReceiverCity,
-    string ReceiverAddress,
-    decimal PackageWeightKg,
-    DateTimeOffset PackagePickupDate);
+public class GetOrderDto
+{
+    public long Id { get; set; }
+    public string SenderCity { get; set; }
+    public string SenderAddress { get; set; }
+    public string ReceiverCity { get; set; }
+    public string ReceiverAddress { get; set; }
+    public decimal PackageWeightKg { get; set; }
+    public DateTimeOffset PackagePickupDate { get; set; }
+}

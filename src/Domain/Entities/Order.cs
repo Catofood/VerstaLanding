@@ -21,7 +21,7 @@ public class Order
     [Column("receiver_address")]
     public string ReceiverAddress { get; set; }
     
-    [Column("order_number")]
+    [Column("package_weight_kg")]
     public decimal PackageWeightKg { get; set; }
     [Column("package_pickup_date")]
     public DateTimeOffset PackagePickupDate { get; set; }
