@@ -20,7 +20,7 @@ docker-compose up -d
 ### 3. Применить миграции базы данных
 
 ```powershell
-cd src/Api
+cd src/Versta.Landing.Api
 dotnet ef database update
 ```
 
