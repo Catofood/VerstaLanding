@@ -21,7 +21,7 @@ public class GetPaginatedOrdersHandler : IRequestHandler<GetPaginatedOrdersQuery
         var page = request.Page;
         var pageSize = request.PageSize;
         var paginatedOrderDtos = await _dbContext.Orders
-            .OrderBy(x => x.Id)
+            .OrderByDescending(x => x.Id)
             .ProjectTo<GetOrderDto>(_mapper.ConfigurationProvider)
             .ToPaginatedListAsync(page, pageSize, cancellationToken);
         return paginatedOrderDtos;
